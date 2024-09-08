@@ -1,0 +1,15 @@
+{
+  "name": "frontend-security-handson",
+  "version": "1.0.0",
+  "description": "[『フロントエンド開発のためのセキュリティ入門』（翔泳社）](https://www.shoeisha.co.jp/book/detail/9784798169477)に掲載している各章のハンズオン",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
