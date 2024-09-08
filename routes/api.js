@@ -1,8 +1,18 @@
 const express = require("express");
 const router = express.Router();
 
+const allowList = [
+    "http://localhost:3000",
+    "http://site.example:3000"
+]
+
 router.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
+    //Originヘッダが存在している、かつリクエスト許可するリスト内にOriginヘッダの値が含まれているかチェック
+    if (req.headers.origin && allowList.includes(req.headers.origin)) {
+        res.header("Access-Control-Allow-Origin", req.headers.origin);
+    }
+
+    //プリフライトリクエストかチェック
     if (req.method === "OPTIONS") {
         res.header("Access-Control-Allow-Headers", "X-Token");
     }
