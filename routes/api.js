@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
+router.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+})
+
 router.get("/", (req, res) => {
     res.setHeader("X-Timestamp", Date.now());
     let message = req.query.message;
