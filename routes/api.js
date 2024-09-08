@@ -3,6 +3,9 @@ const router = express.Router();
 
 router.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
+    if (req.method === "OPTIONS") {
+        res.header("Access-Control-Allow-Headers", "X-Token");
+    }
     next();
 })
 
