@@ -14,8 +14,11 @@
         const url = new URL(location.href);
         const message = url.searchParams.get("message");
         if (message !== null) {
-            const textNode = document.createTextNode(message);
-            document.querySelector("#result").appendChild(textNode);
+            const sanitizedMessage = DOMPurify.sanitize('message');
+            document.querySelector("#result").innerHTML = sanitizedMessage;
+
+            // const textNode = document.createTextNode(message);
+            // document.querySelector("#result").appendChild(textNode);
         }
 
         //URLからlinkのURLを設定する
